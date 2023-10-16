@@ -50,7 +50,25 @@ h6 {
 }
 
 .search-form {
-    margin: 40px;
+    padding: 15px;
+    position: fixed;
+    top: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+
+    gap: 20px;
+    z-index: 999;
+    width: 100%;
+    background-color: #dbd1d1;
+}
+
+input {
+    width: 400px;
+    height: 32px;
+    font-size: 18px;
 }
 
 .submit-btn {
@@ -71,7 +89,7 @@ h6 {
 }
 
 .gallery {
-    margin: 20px 0px;
+    margin: 80px 0px 25px 0px;
     display: flex;
     align-items: flex-end;
     justify-content: center;

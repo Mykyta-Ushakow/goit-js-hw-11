@@ -62,13 +62,7 @@ function imagesService(event) {
     }
 
     getImages(qValue)
-        .then(resp => {
-
-            console.log(resp);
-            console.log(resp.data);
-            console.log(resp.data.hits);
-            console.log(resp.data.totalHits);
-            
+        .then(resp => {      
 
             if (resp.data.hits.length === 0) {
                 throw new Error('Sorry, there are no images matching your search query. Please try again.');
@@ -147,23 +141,20 @@ function handleLoadMore(event) {
 
     getImages(qValue)
         .then(resp => {
-
-            console.log(resp);
-            console.log(resp.data);
-            console.log(resp.data.hits);
         
             const markup = createMarkup(resp.data.hits);
             galleryEl.insertAdjacentHTML("beforeend", markup);
 
             if (galleryEl.children.length >= resp.data.totalHits) {
                 loadMore.classList.add("hidden");
+
                 Notiflix.Notify.warning("We're sorry, but you've reached the end of search results.", {
-                width: '500px',
-                svgSize: '120px',
-                clickToClose: true,
-                pauseOnHover: true,
-                fontSize: '26px',
-            })
+                    width: '500px',
+                    svgSize: '120px',
+                    clickToClose: true,
+                    pauseOnHover: true,
+                    fontSize: '26px',
+                });
             }
 
         })
